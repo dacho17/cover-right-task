@@ -29,7 +29,6 @@ public class ZipCodeBaseClient implements ZipCodeClient {
 			RestTemplate restTemplate = new RestTemplate();
 			response = restTemplate.getForObject(finalZipCodeBaseUrl, ZipCodeApiResponse.class);
 		} catch (Exception exc) {
-			System.out.println(exc.getMessage());
 			throw new Exception(
 				"Error occurred while communicating with ZipBase API. Make sure you inserted the correct zip code.");
 		}

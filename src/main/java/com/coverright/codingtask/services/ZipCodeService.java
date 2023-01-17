@@ -24,8 +24,12 @@ public class ZipCodeService {
 		return clientResponse;
 	}
 
-	private List<ZipCodeResult> MapApiToClientRes(List<ZipCodeDetails> zipCodeDetails) {
+	private List<ZipCodeResult> MapApiToClientRes(List<ZipCodeDetails> zipCodeDetails) throws Exception {
 
+		if (zipCodeDetails == null) {
+			throw new Exception("No details found for the provided zip code");
+		}
+		
 		List<ZipCodeResult> res = new ArrayList<>();
 		for (ZipCodeDetails element : zipCodeDetails) {
 			res.add(new ZipCodeResult(element.getProvince(), element.getState_code()));
